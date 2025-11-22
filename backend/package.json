@@ -1,19 +1,24 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
   "author": "",
-  "license": "ISC",
-  "type": "module",
+  "main": "index.js",
   "dependencies": {
     "@neondatabase/serverless": "^1.0.0",
     "cors": "^2.8.5",
-    "dotenv": "^16.5.0",
-    "express": "^4.21.0"
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0"
+  },
+  "description": "",
+  "keywords": [],
+  "license": "ISC",
+  "scripts": {
+    "dev": "bun --watch server.js",
+    "start": "bun server.js"
+  },
+  "type": "module",
+  "devDependencies": {
+    "@types/express": "^5.0.5",
+    "@types/node": "^24.10.1"
   }
 }
