@@ -11,6 +11,9 @@ const port = process.env.PORT || 5001;
 app.use(express.json());
 app.use(rateLimiter); // ratelimit middleware
 
+app.get("/api/healthcheck", (req, res) => {
+  res.send("It's working!");
+});
 
 // routes
 app.use("/api/transactions", transactionRoutes);
