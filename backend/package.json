@@ -2,7 +2,7 @@
   "name": "backend",
   "version": "1.0.0",
   "author": "",
-  "main": "index.js",
+  "main": "src/server.js",
   "dependencies": {
     "@neondatabase/serverless": "^1.0.0",
     "@upstash/ratelimit": "^2.0.7",
@@ -15,8 +15,8 @@
   "keywords": [],
   "license": "ISC",
   "scripts": {
-    "dev": "bun --watch server.js",
-    "start": "bun server.js"
+    "dev": "bun --watch src/server.js",
+    "start": "bun src/server.js"
   },
   "type": "module",
   "devDependencies": {
