@@ -26,15 +26,13 @@ export default function Index() {
         }}
         style={{ width: 200, height: 200 }}
       /> */}
-      <Image 
-      source={require("@/assets/images/icon.png")}
-      style={{ width: 200, height: 200 }}
+      <Image
+        source={require("@/assets/images/icon.png")}
+        style={{ width: 200, height: 200 }}
       />
 
       <View>
-        <Text>
-          Hello
-        </Text>
+        <Text>Hello This is using</Text>
       </View>
     </View>
   );
