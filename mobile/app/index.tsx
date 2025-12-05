@@ -1,9 +1,11 @@
-import { Image } from "expo-image";
-import { Link } from "expo-router";
 import { StyleSheet, Text, View } from "react-native";
 
 export default function Index() {
-  return <View style={styles.container}></View>;
+  return (
+    <View style={styles.container}>
+      <Text style={styles.header}>Hello World!</Text>
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
@@ -12,5 +14,9 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#E6F4FE",
+  },
+  header: {
+    fontSize: 20,
+    fontWeight: "bold",
   },
 });
