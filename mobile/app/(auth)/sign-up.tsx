@@ -5,6 +5,7 @@ import { Link, useRouter } from "expo-router";
 import { styles } from "@/assets/styles/auth.styles";
 import { COLORS } from "@/constants/colors";
 import { Ionicons } from "@expo/vector-icons";
+import { Image } from "expo-image";
 
 export default function SignUpScreen() {
   const { isLoaded, signUp, setActive } = useSignUp();
@@ -97,13 +98,31 @@ export default function SignUpScreen() {
   }
 
   return (
-    <View>
-      <>
-        <Text>Sign up</Text>
+    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+      <View style={styles.container}>
+        <Image
+          source={require("../../assets/images/revenue-i2.png")}
+          style={styles.illustration}
+        />
+
+        <Text style={styles.title}>Create Account</Text>
+
+        {error && (
+          <View style={styles.errorBox}>
+            <Ionicons name="alert-circle" size={20} color={COLORS.expense} />
+            <Text style={styles.errorText}>{error}</Text>
+            <TouchableOpacity onPress={() => setError("")}>
+              <Ionicons name="close" size={20} color={COLORS.textLight} />
+            </TouchableOpacity>
+          </View>
+        )}
+
         <TextInput
           autoCapitalize="none"
           value={emailAddress}
           placeholder="Enter email"
+          style={[styles.input, error && styles.errorInput]}
+          placeholderTextColor={"#9A8478"}
           onChangeText={(email) => setEmailAddress(email)}
         />
         <TextInput
@@ -111,17 +130,20 @@ export default function SignUpScreen() {
           placeholder="Enter password"
           secureTextEntry={true}
           onChangeText={(password) => setPassword(password)}
+          style={[styles.input, error && styles.errorInput]}
+          placeholderTextColor={"#9A8478"}
         />
-        <TouchableOpacity onPress={onSignUpPress}>
-          <Text>Continue</Text>
+        <TouchableOpacity style={styles.button} onPress={onSignUpPress}>
+          <Text style={styles.buttonText}>Sign Up</Text>
         </TouchableOpacity>
-        <View style={{ display: "flex", flexDirection: "row", gap: 3 }}>
-          <Text>Already have an account?</Text>
+
+        <View style={styles.footerContainer}>
+          <Text style={styles.footerText}>Already have an account?</Text>
           <Link href="/sign-in">
-            <Text>Sign in</Text>
+            <Text style={styles.linkText}>Sign in</Text>
           </Link>
         </View>
-      </>
+      </View>
     </View>
   );
 }
