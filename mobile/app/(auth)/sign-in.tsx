@@ -2,6 +2,7 @@ import { useSignIn } from "@clerk/clerk-expo";
 import { Link, useRouter } from "expo-router";
 import { Text, TextInput, TouchableOpacity, View } from "react-native";
 import React from "react";
+import { styles } from "@/assets/styles/auth.styles";
 
 export default function Page() {
   const { signIn, setActive, isLoaded } = useSignIn();
@@ -39,24 +40,26 @@ export default function Page() {
   };
 
   return (
-    <View>
-      <Text>Sign in</Text>
+    <View style={styles.container}>
+      <Text style={styles.title}>Sign in</Text>
       <TextInput
+        style={styles.input}
         autoCapitalize="none"
         value={emailAddress}
         placeholder="Enter email"
         onChangeText={(emailAddress) => setEmailAddress(emailAddress)}
       />
       <TextInput
+        style={styles.input}
         value={password}
         placeholder="Enter password"
         secureTextEntry={true}
         onChangeText={(password) => setPassword(password)}
       />
-      <TouchableOpacity onPress={onSignInPress}>
+      <TouchableOpacity style={styles.button} onPress={onSignInPress}>
         <Text>Continue</Text>
       </TouchableOpacity>
-      <View style={{ display: "flex", flexDirection: "row", gap: 3 }}>
+      <View style={styles.footerContainer}>
         <Link href="/sign-up">
           <Text>Sign up</Text>
         </Link>
